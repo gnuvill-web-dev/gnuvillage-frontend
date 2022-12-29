@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  width: 15rem;
+  width: 10rem;
   height: 4rem;
   font-weight: bold;
   font-family: "Pretendard";

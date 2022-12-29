@@ -47,37 +47,13 @@ export const NavbarStyle = styled.div`
     width: 120px;
   }
 
-  /* 50~56줄 수정한 부분 시작 */
   .navbar-menu-main div a {
     color: white;
-    text-decoration: none;
   }
 
   .navbar-modal-intro a div {
     color: white;
   }
-
-  .navbar-modal-intro a div:hover {
-    color: #cf72f2;
-  }
-
-  .navbar-modal-study a div {
-    color: white;
-  }
-
-  .navbar-modal-study a div:hover {
-    color: #cf72f2;
-  }
-
-  .navbar-my a div {
-    color: white;
-  }
-
-  .navbar-my a div:hover {
-    color: Turquoise;
-    transition: 0.5s;
-  }
-  /* 수정한 부분 끝 */
 
   .navbar-menu-main div a:hover {
     border-bottom: 1px solid #cf72f2;

@@ -45,10 +45,11 @@ const StudyTitle3 = styled.div`
 
 const StudyButtons = styled.div`
   padding: 20px 40px;
+  /* border: 1px solid lightgray; */
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 `;
 
@@ -56,12 +57,30 @@ export default function Study() {
   const navigate = useNavigate();
 
   const studys1 = [
-    { id: 0, name: "C", url: "/study-intro/0" },
-    { id: 1, name: "JAVA", url: "/study-intro/1" },
-    { id: 2, name: "ALGORITHM", url: "/study-intro/2" },
-    { id: 3, name: "DATA SCIENCE", url: "/study-intro/3" },
-    { id: 4, name: "WEB basic", url: "/study-intro/4" },
-    { id: 5, name: "WEB development", url: "/study-intro/5" },
+    { id: 0, name: "C", url: "/study-intro/c" },
+    { id: 1, name: "JAVA", url: "/study-intro/java" },
+    { id: 2, name: "ALGORITHM", url: "/study-intro/algo" },
+    { id: 3, name: "DATA SCIENCE", url: "/study-intro/data" },
+    { id: 4, name: "WEB basic", url: "/study-intro/web1" },
+    { id: 5, name: "WEB development", url: "/study-intro/web2" },
+  ];
+
+  const studys2 = [
+    { id: 0, name: "스터디 1", url: "/study-intro/study1" },
+    { id: 1, name: "스터디 2", url: "/study-intro/study2" },
+    { id: 2, name: "스터디 3", url: "/study-intro/study3" },
+  ];
+
+  const studys3 = [
+    { id: 0, name: "스터디 a", url: "/study-intro/studyA" },
+    { id: 1, name: "스터디 b", url: "/study-intro/studyB" },
+    { id: 2, name: "스터디 c", url: "/study-intro/studyC" },
+    { id: 3, name: "스터디 d", url: "/study-intro/studyD" },
+    { id: 4, name: "스터디 e", url: "/study-intro/studyE" },
+    { id: 5, name: "스터디 f", url: "/study-intro/studyF" },
+    { id: 6, name: "스터디 g", url: "/study-intro/studyG" },
+    { id: 7, name: "스터디 h", url: "/study-intro/studyH" },
+    { id: 8, name: "스터디 i", url: "/study-intro/studyI" },
   ];
 
   return (
@@ -81,6 +100,7 @@ export default function Study() {
 
       <StudyPage>
         <StudyTitle1>Introduction</StudyTitle1>
+        <StudyTitle2>정규 스터디</StudyTitle2>
         <StudyButtons>
           {studys1.map((study) => {
             return (
@@ -96,6 +116,43 @@ export default function Study() {
         </StudyButtons>
 
         <hr />
+
+        <StudyTitle2>자유 스터디</StudyTitle2>
+        <StudyTitle3>자유롭게 스터디를 만들어 활동할 수 있습니다.</StudyTitle3>
+        <StudyButtons>
+          {studys2.map((study) => {
+            return (
+              <StudyBtn
+                title={study.name}
+                key={study.id}
+                onClick={() => {
+                  navigate(study.url);
+                }}
+              />
+            );
+          })}
+        </StudyButtons>
+
+        <hr />
+
+        <StudyTitle2>대외활동 스터디</StudyTitle2>
+        <StudyTitle3>
+          공모전, 해커톤 등 외부활동을 위한 팀을 만들어 활동할 수 있습니다.
+        </StudyTitle3>
+        <StudyButtons>
+          {studys3.map((study) => {
+            return (
+              <StudyBtn
+                title={study.name}
+                key={study.id}
+                onClick={() => {
+                  navigate(study.url);
+                }}
+              />
+            );
+          })}
+        </StudyButtons>
+
         <br />
 
         <StudyTitle1>Results</StudyTitle1>
