@@ -35,10 +35,6 @@ function App() {
         <Route path="/study-notice/c" element={<StudyNoticeList />}></Route>
         <Route path="/study-intro/c" element={<StudyIntro />}></Route>
         <Route path="/study-notice" element={<StudyNotice />}></Route>
-        <Route
-          path="/study-notice/:groupId"
-          element={<StudyNoticeList />}
-        ></Route>
         <Route path="/study-results" element={<StudyResults />}></Route>
       </Routes>
     </div>
