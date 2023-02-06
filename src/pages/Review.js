@@ -8,11 +8,26 @@ import Pagination from "../components/Pagination";
 const BACKEND_URL = "http://114.206.145.160:3000";
 let pageNo = 1;
 let totalPage = 10;
+let isAdmin = false;
+let isAuthor = false;
+let userId;
 
 async function onMount(setReviewState, navigate) {
   let newReviewState = {};
 
-  //스터디 공지 리스트 가져옴
+  if (
+    sessionStorage["id"] !== undefined &&
+    sessionStorage["token"] !== undefined
+  ) {
+    userId = sessionStorage["id"];
+  }
+
+  //유저가 관리자인지 확인
+  if (userId === "superuser") {
+    isAdmin = true;
+  }
+
+  //동아리 후기 가져옴
   await axios
     .get(BACKEND_URL + "/posts/", {
       params: {
@@ -44,21 +59,27 @@ export default function Review() {
   pageNo = searchParams.get("pageNo");
   if (pageNo === null) pageNo = 1;
 
-  let postEditBtn;
+  if (postState.userId !== undefined && postState.userId === userId)
+    isAuthor = true;
+
   let postCreateBtn;
-  postEditBtn = (
-    <a
-      className="btn btn-secondary mb-2 me-3"
-      href={"/review/edit/" + postState.id}
-    >
-      수정
-    </a>
-  );
   postCreateBtn = (
     <a className="btn btn-secondary mb-2" href={"/review/create/"}>
       작성
     </a>
   );
+
+  let postEditBtn;
+  if (isAdmin || isAuthor) {
+    postEditBtn = (
+      <a
+        className="btn btn-secondary mb-2 me-3"
+        href={"/review/edit/" + postState.id}
+      >
+        수정
+      </a>
+    );
+  }
 
   useEffect(() => {
     onMount(setReviewState, navigate);
