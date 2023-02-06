@@ -40,7 +40,7 @@ function App() {
         <Route path="/notice/edit/:postId" element={<NoticeEdit />}></Route>
         <Route path="/notice/create" element={<NoticeCreate />}></Route>
         <Route path="/review" element={<Review />}></Route>
-        <Route path="/review/edit" element={<ReviewEdit />}></Route>
+        <Route path="/review/edit/:postId" element={<ReviewEdit />}></Route>
         <Route path="/review/create" element={<ReviewCreate />}></Route>
         <Route path="/login" element={<LogIn />}></Route>
         <Route path="/findId" element={<FindID />}></Route>
